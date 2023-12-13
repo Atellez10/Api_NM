@@ -1,7 +1,12 @@
 import { Sequelize } from "sequelize";
-import {setupModels} from '../db/index';
+import {setupModels} from "../db/index.js";
+import dotenv from "dotenv"
 
-const URL = 'mysql://root:@localhost:3306/nm_proyecto'
+dotenv.config()
+
+const URL = `mysql://${process.env.USER_DB}:@${process.env.LOCALHOST}:${process.env.PORT_DB}/${process.env.NAME_DB}`
+
+
 
 const sequelize= new Sequelize (URL,{
     dialect: 'mysql',

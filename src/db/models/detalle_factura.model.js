@@ -1,37 +1,34 @@
 import {DataTypes, Model} from 'sequelize';
 
-const schemaProduct = {
-    name_product:{
+const schemadetalle_factura = {
+    numero_factura:{
         type: DataTypes.STRING,
         allowNull: false,
     }, 
-
-    description: {
+    producto: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-
-    price:{
+    cantidad: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    precio_unitario: {
         type: DataTypes.DECIMAL,
         allowNull: false,
     },
-    image:{
-        type:DataTypes.STRING,
+    subtotal: {
+        type: DataTypes.DECIMAL,
         allowNull: false,
     },
-    stock:{
-        type:DataTypes.INTEGER,
-        allowNull: false,
-    }
 }
 
-class Product extends Model{
+class Detalle_fact extends Model{
     static association(){}
     static config(sequelize){
         return ({
             sequelize
         })
     }
-
 }
-export {schemaProduct, Product}
+export {schemadetalle_factura,Detalle_fact}
